@@ -45,13 +45,3 @@ jobs:
           name: ghidra_irx
           path: |
             dist/*.zip
-            
-      - name: Release
-        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
-        uses: svenstaro/upload-release-action@v1-release
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: dist/*.zip
-          tag: "latest"
-          overwrite: true
-          file_glob: true
